@@ -1,0 +1,12 @@
+version: '2'
+services:
+    piratesfl-postgresql:
+        container_name: piratesfl-postgresql
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/piratesfl/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=piratesfl
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
