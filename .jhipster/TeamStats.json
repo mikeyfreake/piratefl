@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "season",
+            "otherEntityName": "season",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "year"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "wins",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "losses",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ties",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pointsFor",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pointsAgainst",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20161003185811",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "team_stats",
+    "pagination": "pagination"
+}

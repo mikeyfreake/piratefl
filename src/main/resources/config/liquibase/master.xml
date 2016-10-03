@@ -5,6 +5,19 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003183326_added_entity_League.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003184124_added_entity_Season.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003184804_added_entity_Team.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003185243_added_entity_Trophy.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003185811_added_entity_TeamStats.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003191221_added_entity_PowerRanking.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003192005_added_entity_TrophyWinner.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20161003184124_added_entity_constraints_Season.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003184804_added_entity_constraints_Team.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003185243_added_entity_constraints_Trophy.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003185811_added_entity_constraints_TeamStats.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003191221_added_entity_constraints_PowerRanking.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161003192005_added_entity_constraints_TrophyWinner.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTeamStatsLabel">Create or edit a Team Stats</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.teamStats.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.teamStats.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_wins">Wins</label>
+            <input type="number" class="form-control" name="wins" id="field_wins"
+                    ng-model="vm.teamStats.wins"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_losses">Losses</label>
+            <input type="number" class="form-control" name="losses" id="field_losses"
+                    ng-model="vm.teamStats.losses"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ties">Ties</label>
+            <input type="number" class="form-control" name="ties" id="field_ties"
+                    ng-model="vm.teamStats.ties"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pointsFor">Points For</label>
+            <input type="number" class="form-control" name="pointsFor" id="field_pointsFor"
+                    ng-model="vm.teamStats.pointsFor"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pointsAgainst">Points Against</label>
+            <input type="number" class="form-control" name="pointsAgainst" id="field_pointsAgainst"
+                    ng-model="vm.teamStats.pointsAgainst"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_season">Season</label>
+            <select class="form-control" id="field_season" name="season" ng-model="vm.teamStats.season" ng-options="season as season.year for season in vm.seasons track by season.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.season.$invalid">
+            <p class="help-block"
+                ng-show="editForm.season.$error.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

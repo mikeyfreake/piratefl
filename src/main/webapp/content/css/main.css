@@ -1,8 +1,10 @@
+/*
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
+*/
 
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
@@ -101,7 +103,8 @@ Main page styles
     display: inline-block;
     width: 347px;
     height: 497px;
-    background: url("../images/hipster.png") no-repeat center top;
+    /* background: url("../images/hipster.png") no-repeat center top;*/
+    background: url("../images/ppffl_logo.png") no-repeat center top;
     background-size: contain;
 }
 
@@ -332,3 +335,13 @@ ui bootstrap tweaks
 
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+
+/****************************** MY STYLES *******************************/
+.navbar-inverse { 
+     background-color: #000; 
+ }
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #222;
+}

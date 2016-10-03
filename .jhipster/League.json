@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "seasons",
+            "otherEntityName": "season",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "league"
+        },
+        {
+            "relationshipName": "teams",
+            "otherEntityName": "team",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "league"
+        },
+        {
+            "relationshipName": "trophies",
+            "otherEntityName": "trophy",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "league"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "leagueName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "128"
+        }
+    ],
+    "changelogDate": "20161003183326",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "league",
+    "pagination": "pagination"
+}

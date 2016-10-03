@@ -37,5 +37,57 @@
            timeToLiveSeconds="3600">
     </cache>
     
+    <cache name="io.github.mikeyfreake.domain.League"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.League.seasons"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.League.teams"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.League.trophies"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.Season"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.Season.teamStats"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.Season.powerRankings"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.Season.trophyWinners"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.Team"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.Trophy"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.TeamStats"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.PowerRanking"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="io.github.mikeyfreake.domain.TrophyWinner"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

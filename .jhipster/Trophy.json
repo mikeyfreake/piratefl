@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "league",
+            "otherEntityName": "league",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "leagueName"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "trophyName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        }
+    ],
+    "changelogDate": "20161003185243",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "trophy",
+    "pagination": "pagination"
+}
