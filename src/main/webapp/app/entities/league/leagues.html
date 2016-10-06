@@ -20,6 +20,7 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="leagueName"><span>League Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="constitution"><span>Constitution</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                 <tr ng-repeat="league in vm.leagues track by league.id">
                     <td><a ui-sref="league-detail({id:league.id})">{{league.id}}</a></td>
                     <td>{{league.leagueName}}</td>
+                    <td>{{league.constitution}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

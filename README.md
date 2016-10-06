@@ -28,8 +28,17 @@ Bower is used to manage CSS and JavaScript dependencies used in this application
 specifying a newer version in `bower.json`. You can also run `bower update` and `bower install` to manage dependencies.
 Add the `-h` flag on any command to see how you can use it. For example, `bower update -h`.
 
+### Database - H2
 
-## Building for production
+Using an H2 disk based persistence database for development.
+
+## Production
+
+### Database
+
+Using Postgres in production. To reset the database use the following command: `heroku pg:reset DATABASE_URL`
+
+### Building
 
 To optimize the piratesfl client for production, run:
 

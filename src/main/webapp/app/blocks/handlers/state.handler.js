@@ -36,7 +36,7 @@
             });
 
             var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
-                var titleKey = 'piratesfl' ;
+                var titleKey = 'Pasadena Pirates Fantasy Football League' ;
 
                 // Set the page title key to the one configured in state or use default one
                 if (toState.data.pageTitle) {

@@ -67,7 +67,7 @@ class LeagueGatlingTest extends Simulation {
             .exec(http("Create new league")
             .post("/api/leagues")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "leagueName":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "leagueName":"SAMPLE_TEXT", "constitution":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_league_url"))).exitHereIfFailed
             .pause(10)

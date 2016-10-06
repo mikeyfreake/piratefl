@@ -116,6 +116,7 @@
                         entity: function () {
                             return {
                                 leagueName: null,
+                                constitution: null,
                                 id: null
                             };
                         }

@@ -29,6 +29,14 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "128"
+        },
+        {
+            "fieldName": "constitution",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "4000"
         }
     ],
     "changelogDate": "20161003183326",

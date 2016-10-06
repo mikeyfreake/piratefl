@@ -30,6 +30,10 @@ public class League implements Serializable {
     @Column(name = "league_name", length = 128, nullable = false)
     private String leagueName;
 
+    @Size(max = 4000)
+    @Column(name = "constitution", length = 4000)
+    private String constitution;
+
     @OneToMany(mappedBy = "league")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -64,6 +68,19 @@ public class League implements Serializable {
 
     public void setLeagueName(String leagueName) {
         this.leagueName = leagueName;
+    }
+
+    public String getConstitution() {
+        return constitution;
+    }
+
+    public League constitution(String constitution) {
+        this.constitution = constitution;
+        return this;
+    }
+
+    public void setConstitution(String constitution) {
+        this.constitution = constitution;
     }
 
     public Set<Season> getSeasons() {
@@ -166,6 +183,7 @@ public class League implements Serializable {
         return "League{" +
             "id=" + id +
             ", leagueName='" + leagueName + "'" +
+            ", constitution='" + constitution + "'" +
             '}';
     }
 }
