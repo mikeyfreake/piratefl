@@ -120,6 +120,8 @@
                                 ties: null,
                                 pointsFor: null,
                                 pointsAgainst: null,
+                                draftPosition: null,
+                                finished: null,
                                 id: null
                             };
                         }

@@ -37,9 +37,20 @@ public class TeamStats implements Serializable {
     @Column(name = "points_against")
     private Integer pointsAgainst;
 
+    @Column(name = "draft_position")
+    private Integer draftPosition;
+
+    @Column(name = "finished")
+    private Integer finished;
+
     @ManyToOne
     @NotNull
     private Season season;
+
+    @OneToOne
+    @NotNull
+    @JoinColumn(unique = true)
+    private Team team;
 
     public Long getId() {
         return id;
@@ -114,6 +125,32 @@ public class TeamStats implements Serializable {
         this.pointsAgainst = pointsAgainst;
     }
 
+    public Integer getDraftPosition() {
+        return draftPosition;
+    }
+
+    public TeamStats draftPosition(Integer draftPosition) {
+        this.draftPosition = draftPosition;
+        return this;
+    }
+
+    public void setDraftPosition(Integer draftPosition) {
+        this.draftPosition = draftPosition;
+    }
+
+    public Integer getFinished() {
+        return finished;
+    }
+
+    public TeamStats finished(Integer finished) {
+        this.finished = finished;
+        return this;
+    }
+
+    public void setFinished(Integer finished) {
+        this.finished = finished;
+    }
+
     public Season getSeason() {
         return season;
     }
@@ -125,6 +162,19 @@ public class TeamStats implements Serializable {
 
     public void setSeason(Season season) {
         this.season = season;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public TeamStats team(Team team) {
+        this.team = team;
+        return this;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     @Override
@@ -156,6 +206,8 @@ public class TeamStats implements Serializable {
             ", ties='" + ties + "'" +
             ", pointsFor='" + pointsFor + "'" +
             ", pointsAgainst='" + pointsAgainst + "'" +
+            ", draftPosition='" + draftPosition + "'" +
+            ", finished='" + finished + "'" +
             '}';
     }
 }

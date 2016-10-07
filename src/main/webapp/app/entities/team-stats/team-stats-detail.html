@@ -24,9 +24,21 @@
         <dd>
             <span>{{vm.teamStats.pointsAgainst}}</span>
         </dd>
+        <dt><span>Draft Position</span></dt>
+        <dd>
+            <span>{{vm.teamStats.draftPosition}}</span>
+        </dd>
+        <dt><span>Finished</span></dt>
+        <dd>
+            <span>{{vm.teamStats.finished}}</span>
+        </dd>
         <dt><span>Season</span></dt>
         <dd>
             <a ui-sref="season-detail({id:vm.teamStats.season.id})">{{vm.teamStats.season.year}}</a>
+        </dd>
+        <dt><span>Team</span></dt>
+        <dd>
+            <a ui-sref="team-detail({id:vm.teamStats.team.id})">{{vm.teamStats.team.teamName}}</a>
         </dd>
     </dl>
 

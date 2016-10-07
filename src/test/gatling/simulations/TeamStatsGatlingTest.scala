@@ -67,7 +67,7 @@ class TeamStatsGatlingTest extends Simulation {
             .exec(http("Create new teamStats")
             .post("/api/team-stats")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "wins":"0", "losses":"0", "ties":"0", "pointsFor":"0", "pointsAgainst":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "wins":"0", "losses":"0", "ties":"0", "pointsFor":"0", "pointsAgainst":"0", "draftPosition":"0", "finished":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_teamStats_url"))).exitHereIfFailed
             .pause(10)

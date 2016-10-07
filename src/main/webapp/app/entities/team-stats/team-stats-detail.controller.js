@@ -5,9 +5,9 @@
         .module('piratesflApp')
         .controller('TeamStatsDetailController', TeamStatsDetailController);
 
-    TeamStatsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'TeamStats', 'Season'];
+    TeamStatsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'TeamStats', 'Season', 'Team'];
 
-    function TeamStatsDetailController($scope, $rootScope, $stateParams, previousState, entity, TeamStats, Season) {
+    function TeamStatsDetailController($scope, $rootScope, $stateParams, previousState, entity, TeamStats, Season, Team) {
         var vm = this;
 
         vm.teamStats = entity;

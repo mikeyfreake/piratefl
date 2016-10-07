@@ -4,6 +4,7 @@ import io.github.mikeyfreake.PiratesflApp;
 
 import io.github.mikeyfreake.domain.TeamStats;
 import io.github.mikeyfreake.domain.Season;
+import io.github.mikeyfreake.domain.Team;
 import io.github.mikeyfreake.repository.TeamStatsRepository;
 
 import org.junit.Before;
@@ -55,6 +56,12 @@ public class TeamStatsResourceIntTest {
     private static final Integer DEFAULT_POINTS_AGAINST = 1;
     private static final Integer UPDATED_POINTS_AGAINST = 2;
 
+    private static final Integer DEFAULT_DRAFT_POSITION = 1;
+    private static final Integer UPDATED_DRAFT_POSITION = 2;
+
+    private static final Integer DEFAULT_FINISHED = 1;
+    private static final Integer UPDATED_FINISHED = 2;
+
     @Inject
     private TeamStatsRepository teamStatsRepository;
 
@@ -93,12 +100,19 @@ public class TeamStatsResourceIntTest {
                 .losses(DEFAULT_LOSSES)
                 .ties(DEFAULT_TIES)
                 .pointsFor(DEFAULT_POINTS_FOR)
-                .pointsAgainst(DEFAULT_POINTS_AGAINST);
+                .pointsAgainst(DEFAULT_POINTS_AGAINST)
+                .draftPosition(DEFAULT_DRAFT_POSITION)
+                .finished(DEFAULT_FINISHED);
         // Add required entity
         Season season = SeasonResourceIntTest.createEntity(em);
         em.persist(season);
         em.flush();
         teamStats.setSeason(season);
+        // Add required entity
+        Team team = TeamResourceIntTest.createEntity(em);
+        em.persist(team);
+        em.flush();
+        teamStats.setTeam(team);
         return teamStats;
     }
 
@@ -128,6 +142,8 @@ public class TeamStatsResourceIntTest {
         assertThat(testTeamStats.getTies()).isEqualTo(DEFAULT_TIES);
         assertThat(testTeamStats.getPointsFor()).isEqualTo(DEFAULT_POINTS_FOR);
         assertThat(testTeamStats.getPointsAgainst()).isEqualTo(DEFAULT_POINTS_AGAINST);
+        assertThat(testTeamStats.getDraftPosition()).isEqualTo(DEFAULT_DRAFT_POSITION);
+        assertThat(testTeamStats.getFinished()).isEqualTo(DEFAULT_FINISHED);
     }
 
     @Test
@@ -145,7 +161,9 @@ public class TeamStatsResourceIntTest {
                 .andExpect(jsonPath("$.[*].losses").value(hasItem(DEFAULT_LOSSES)))
                 .andExpect(jsonPath("$.[*].ties").value(hasItem(DEFAULT_TIES)))
                 .andExpect(jsonPath("$.[*].pointsFor").value(hasItem(DEFAULT_POINTS_FOR)))
-                .andExpect(jsonPath("$.[*].pointsAgainst").value(hasItem(DEFAULT_POINTS_AGAINST)));
+                .andExpect(jsonPath("$.[*].pointsAgainst").value(hasItem(DEFAULT_POINTS_AGAINST)))
+                .andExpect(jsonPath("$.[*].draftPosition").value(hasItem(DEFAULT_DRAFT_POSITION)))
+                .andExpect(jsonPath("$.[*].finished").value(hasItem(DEFAULT_FINISHED)));
     }
 
     @Test
@@ -163,7 +181,9 @@ public class TeamStatsResourceIntTest {
             .andExpect(jsonPath("$.losses").value(DEFAULT_LOSSES))
             .andExpect(jsonPath("$.ties").value(DEFAULT_TIES))
             .andExpect(jsonPath("$.pointsFor").value(DEFAULT_POINTS_FOR))
-            .andExpect(jsonPath("$.pointsAgainst").value(DEFAULT_POINTS_AGAINST));
+            .andExpect(jsonPath("$.pointsAgainst").value(DEFAULT_POINTS_AGAINST))
+            .andExpect(jsonPath("$.draftPosition").value(DEFAULT_DRAFT_POSITION))
+            .andExpect(jsonPath("$.finished").value(DEFAULT_FINISHED));
     }
 
     @Test
@@ -188,7 +208,9 @@ public class TeamStatsResourceIntTest {
                 .losses(UPDATED_LOSSES)
                 .ties(UPDATED_TIES)
                 .pointsFor(UPDATED_POINTS_FOR)
-                .pointsAgainst(UPDATED_POINTS_AGAINST);
+                .pointsAgainst(UPDATED_POINTS_AGAINST)
+                .draftPosition(UPDATED_DRAFT_POSITION)
+                .finished(UPDATED_FINISHED);
 
         restTeamStatsMockMvc.perform(put("/api/team-stats")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -204,6 +226,8 @@ public class TeamStatsResourceIntTest {
         assertThat(testTeamStats.getTies()).isEqualTo(UPDATED_TIES);
         assertThat(testTeamStats.getPointsFor()).isEqualTo(UPDATED_POINTS_FOR);
         assertThat(testTeamStats.getPointsAgainst()).isEqualTo(UPDATED_POINTS_AGAINST);
+        assertThat(testTeamStats.getDraftPosition()).isEqualTo(UPDATED_DRAFT_POSITION);
+        assertThat(testTeamStats.getFinished()).isEqualTo(UPDATED_FINISHED);
     }
 
     @Test

@@ -43,6 +43,18 @@
                     ng-model="vm.teamStats.pointsAgainst"
                      />
         </div>
+        <div class="form-group">
+            <label class="control-label" for="field_draftPosition">Draft Position</label>
+            <input type="number" class="form-control" name="draftPosition" id="field_draftPosition"
+                    ng-model="vm.teamStats.draftPosition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_finished">Finished</label>
+            <input type="number" class="form-control" name="finished" id="field_finished"
+                    ng-model="vm.teamStats.finished"
+                     />
+        </div>
 
         <div class="form-group">
             <label for="field_season">Season</label>
@@ -53,6 +65,18 @@
         <div ng-show="editForm.season.$invalid">
             <p class="help-block"
                 ng-show="editForm.season.$error.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="field_team">Team</label>
+            <select class="form-control" id="field_team" name="team" ng-model="vm.teamStats.team" ng-options="team as team.teamName for team in vm.teams | orderBy:'id' track by team.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.team.$invalid">
+            <p class="help-block"
+                ng-show="editForm.team.$error.required">
                 This field is required.
             </p>
         </div>

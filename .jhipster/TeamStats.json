@@ -9,6 +9,17 @@
                 "required"
             ],
             "otherEntityField": "year"
+        },
+        {
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "teamName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "teamStats"
         }
     ],
     "fields": [
@@ -30,6 +41,14 @@
         },
         {
             "fieldName": "pointsAgainst",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "draftPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "finished",
             "fieldType": "Integer"
         }
     ],
