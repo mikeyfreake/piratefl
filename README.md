@@ -36,13 +36,15 @@ Using an H2 disk based persistence database for development.
 
 ### Database
 
-Using Postgres in production. To reset the database use the following command: `heroku pg:reset DATABASE_URL`
+Using Postgres in production. To reset the database use the following command: 
+
+    heroku pg:reset DATABASE_URL
 
 ### Building
 
 To optimize the piratesfl client for production, run:
 
-    ./mvnw -Pprod clean package
+    mvn -Pprod clean package
 
 This will concatenate and minify CSS and JavaScript files. It will also modify `index.html` so it references
 these new files.
@@ -65,6 +67,11 @@ Performance tests are run by [Gatling]() and written in Scala. They're located i
 
     ./mvnw gatling:execute
 
+## Deployment
+
+Instructions for deploying to Heroku:
+
+    heroku deploy:jar --jar target/*.war
     
 ## Continuous Integration
 
@@ -78,7 +85,7 @@ To setup this project in Jenkins, use the following configuration:
 * Build Triggers
     * Poll SCM / Schedule: `H/5 * * * *`
 * Build
-    * Invoke Maven / Tasks: `-Pprod clean package`
+    * Invoke Maven / Tasks: `mvn -Pprod clean package`
 * Post-build Actions
     * Publish JUnit test result report / Test Report XMLs: `build/test-results/*.xml`
 

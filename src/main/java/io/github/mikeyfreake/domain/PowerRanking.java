@@ -30,6 +30,10 @@ public class PowerRanking implements Serializable {
     @Column(name = "rank", nullable = false)
     private Integer rank;
 
+    @Size(max = 500)
+    @Column(name = "comments", length = 500)
+    private String comments;
+
     @ManyToOne
     @NotNull
     private Team team;
@@ -70,6 +74,19 @@ public class PowerRanking implements Serializable {
 
     public void setRank(Integer rank) {
         this.rank = rank;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public PowerRanking comments(String comments) {
+        this.comments = comments;
+        return this;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     public Team getTeam() {
@@ -124,6 +141,7 @@ public class PowerRanking implements Serializable {
             "id=" + id +
             ", week='" + week + "'" +
             ", rank='" + rank + "'" +
+            ", comments='" + comments + "'" +
             '}';
     }
 }

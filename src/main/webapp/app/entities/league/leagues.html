@@ -28,7 +28,7 @@
                 <tr ng-repeat="league in vm.leagues track by league.id">
                     <td><a ui-sref="league-detail({id:league.id})">{{league.id}}</a></td>
                     <td>{{league.leagueName}}</td>
-                    <td>{{league.constitution}}</td>
+                    <td ta-bind ng-model="league.constitution">{{league.constitution}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

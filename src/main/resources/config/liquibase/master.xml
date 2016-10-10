@@ -12,6 +12,7 @@
     <include file="classpath:config/liquibase/changelog/20161003185811_added_entity_TeamStats.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161003191221_added_entity_PowerRanking.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161003192005_added_entity_TrophyWinner.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161007212621_updated_entity_PowerRanking.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20161003184124_added_entity_constraints_Season.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161003184804_added_entity_constraints_Team.xml" relativeToChangelogFile="false"/>

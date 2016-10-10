@@ -21,6 +21,7 @@
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="week"><span>Week</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="rank"><span>Rank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="comments"><span>Comments</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="team.teamName"><span>Team</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="season.year"><span>Season</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -31,6 +32,7 @@
                     <td><a ui-sref="power-ranking-detail({id:powerRanking.id})">{{powerRanking.id}}</a></td>
                     <td>{{powerRanking.week}}</td>
                     <td>{{powerRanking.rank}}</td>
+                    <td>{{powerRanking.comments}}</td>
                     <td>
                         <a ui-sref="team-detail({id:powerRanking.team.id})">{{powerRanking.team.teamName}}</a>
                     </td>

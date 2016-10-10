@@ -67,7 +67,7 @@ class PowerRankingGatlingTest extends Simulation {
             .exec(http("Create new powerRanking")
             .post("/api/power-rankings")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "week":"0", "rank":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "week":"0", "rank":"0", "comments":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_powerRanking_url"))).exitHereIfFailed
             .pause(10)

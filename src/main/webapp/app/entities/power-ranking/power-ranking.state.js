@@ -117,6 +117,7 @@
                             return {
                                 week: null,
                                 rank: null,
+                                comments: null,
                                 id: null
                             };
                         }

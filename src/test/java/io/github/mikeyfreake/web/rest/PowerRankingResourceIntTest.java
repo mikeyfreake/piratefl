@@ -46,6 +46,8 @@ public class PowerRankingResourceIntTest {
 
     private static final Integer DEFAULT_RANK = 1;
     private static final Integer UPDATED_RANK = 2;
+    private static final String DEFAULT_COMMENTS = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    private static final String UPDATED_COMMENTS = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB";
 
     @Inject
     private PowerRankingRepository powerRankingRepository;
@@ -82,7 +84,8 @@ public class PowerRankingResourceIntTest {
     public static PowerRanking createEntity(EntityManager em) {
         PowerRanking powerRanking = new PowerRanking()
                 .week(DEFAULT_WEEK)
-                .rank(DEFAULT_RANK);
+                .rank(DEFAULT_RANK)
+                .comments(DEFAULT_COMMENTS);
         // Add required entity
         Team team = TeamResourceIntTest.createEntity(em);
         em.persist(team);
@@ -119,6 +122,7 @@ public class PowerRankingResourceIntTest {
         PowerRanking testPowerRanking = powerRankings.get(powerRankings.size() - 1);
         assertThat(testPowerRanking.getWeek()).isEqualTo(DEFAULT_WEEK);
         assertThat(testPowerRanking.getRank()).isEqualTo(DEFAULT_RANK);
+        assertThat(testPowerRanking.getComments()).isEqualTo(DEFAULT_COMMENTS);
     }
 
     @Test
@@ -169,7 +173,8 @@ public class PowerRankingResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(powerRanking.getId().intValue())))
                 .andExpect(jsonPath("$.[*].week").value(hasItem(DEFAULT_WEEK)))
-                .andExpect(jsonPath("$.[*].rank").value(hasItem(DEFAULT_RANK)));
+                .andExpect(jsonPath("$.[*].rank").value(hasItem(DEFAULT_RANK)))
+                .andExpect(jsonPath("$.[*].comments").value(hasItem(DEFAULT_COMMENTS.toString())));
     }
 
     @Test
@@ -184,7 +189,8 @@ public class PowerRankingResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(powerRanking.getId().intValue()))
             .andExpect(jsonPath("$.week").value(DEFAULT_WEEK))
-            .andExpect(jsonPath("$.rank").value(DEFAULT_RANK));
+            .andExpect(jsonPath("$.rank").value(DEFAULT_RANK))
+            .andExpect(jsonPath("$.comments").value(DEFAULT_COMMENTS.toString()));
     }
 
     @Test
@@ -206,7 +212,8 @@ public class PowerRankingResourceIntTest {
         PowerRanking updatedPowerRanking = powerRankingRepository.findOne(powerRanking.getId());
         updatedPowerRanking
                 .week(UPDATED_WEEK)
-                .rank(UPDATED_RANK);
+                .rank(UPDATED_RANK)
+                .comments(UPDATED_COMMENTS);
 
         restPowerRankingMockMvc.perform(put("/api/power-rankings")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -219,6 +226,7 @@ public class PowerRankingResourceIntTest {
         PowerRanking testPowerRanking = powerRankings.get(powerRankings.size() - 1);
         assertThat(testPowerRanking.getWeek()).isEqualTo(UPDATED_WEEK);
         assertThat(testPowerRanking.getRank()).isEqualTo(UPDATED_RANK);
+        assertThat(testPowerRanking.getComments()).isEqualTo(UPDATED_COMMENTS);
     }
 
     @Test

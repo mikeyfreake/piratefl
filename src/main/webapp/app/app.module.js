@@ -14,6 +14,8 @@
             'ui.router',
             'infinite-scroll',
             'ngSanitize',
+            'angular.filter',
+            'textAngular',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar'
         ])
