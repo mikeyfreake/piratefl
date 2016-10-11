@@ -13,8 +13,6 @@
         load();
         
         vm.search = {week: 0};
-        vm.predicate = "rank";
-        vm.reverse = "true";
         
         function load() {
         	PowerRanking.query({sort: "rank,asc", size: 300}, onSuccess, onError);
