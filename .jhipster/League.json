@@ -36,7 +36,7 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "4000"
+            "fieldValidateRulesMaxlength": "25000"
         }
     ],
     "changelogDate": "20161003183326",

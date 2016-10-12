@@ -30,8 +30,8 @@ public class League implements Serializable {
     @Column(name = "league_name", length = 128, nullable = false)
     private String leagueName;
 
-    @Size(max = 4000)
-    @Column(name = "constitution", length = 4000)
+    @Size(max = 25000)
+    @Column(name = "constitution", length = 25000)
     private String constitution;
 
     @OneToMany(mappedBy = "league")

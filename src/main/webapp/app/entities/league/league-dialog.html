@@ -33,12 +33,12 @@
             <label class="control-label" for="field_constitution">Constitution</label>
 <!--             <input type="text" class="form-control" name="constitution" id="field_constitution" -->
 <!--                     ng-model="vm.league.constitution" -->
-<!--                     ng-maxlength="4000" /> -->
-            <div id="field_constitution" name="constitution" text-angular ng-model="vm.league.constitution" ng-maxlength="4000"></div>
+<!--                     ng-maxlength="25000" /> -->
+            <div id="field_constitution" name="constitution" text-angular ng-model="vm.league.constitution" ng-maxlength="25000"></div>
             <div ng-show="editForm.constitution.$invalid">
                 <p class="help-block"
                     ng-show="editForm.constitution.$error.maxlength">
-                    This field cannot be longer than 4000 characters.
+                    This field cannot be longer than 25,0000 characters.
                 </p>
             </div>
         </div>
