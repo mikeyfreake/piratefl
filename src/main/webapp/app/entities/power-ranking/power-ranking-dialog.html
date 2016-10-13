@@ -60,7 +60,7 @@
 
         <div class="form-group">
             <label for="field_team">Team</label>
-            <select class="form-control" id="field_team" name="team" ng-model="vm.powerRanking.team" ng-options="team as team.teamName for team in vm.teams track by team.id" required>
+            <select class="form-control" id="field_team" name="team" ng-model="vm.powerRanking.team" ng-options="team as team.teamName for team in vm.teams | orderBy:'team.teamName' track by team.id" required>
                 <option value=""></option>
             </select>
         </div>
