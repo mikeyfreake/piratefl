@@ -32,7 +32,7 @@
 				<tr ng-repeat="powerRanking in vm.powerRankings | filter:vm.search">
 					<td>{{powerRanking.rank}}</td>
 					<td>{{powerRanking.team.teamName}}</td>
-					<td>{{powerRanking.comments}}</td>
+					<td ta-bind ng-model="powerRanking.comments"></td>
 				</tr>
 			</tbody>
 		</table>

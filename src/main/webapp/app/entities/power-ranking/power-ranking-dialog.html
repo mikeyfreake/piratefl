@@ -47,9 +47,10 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="field_comments">Comments</label>
-            <input type="text" class="form-control" name="comments" id="field_comments"
-                    ng-model="vm.powerRanking.comments"
-                    ng-maxlength="500" />
+<!--             <input type="text" class="form-control" name="comments" id="field_comments" -->
+<!--                     ng-model="vm.powerRanking.comments" -->
+<!--                     ng-maxlength="500" /> -->
+			<div id="field_comments" name="comments" text-angular ng-model="vm.powerRanking.comments" ng-maxlength="500"></div>
             <div ng-show="editForm.comments.$invalid">
                 <p class="help-block"
                     ng-show="editForm.comments.$error.maxlength">

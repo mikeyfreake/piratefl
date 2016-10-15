@@ -32,7 +32,7 @@
                     <td><a ui-sref="power-ranking-detail({id:powerRanking.id})">{{powerRanking.id}}</a></td>
                     <td>{{powerRanking.week}}</td>
                     <td>{{powerRanking.rank}}</td>
-                    <td>{{powerRanking.comments}}</td>
+                    <td ta-bind ng-model="powerRanking.comments"></td>
                     <td>
                         <a ui-sref="team-detail({id:powerRanking.team.id})">{{powerRanking.team.teamName}}</a>
                     </td>
