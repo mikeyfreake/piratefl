@@ -92,13 +92,13 @@ public class Season implements Serializable {
     }
 
     public Season addTeamStats(TeamStats teamStats) {
-        teamStats.add(teamStats);
+        this.teamStats.add(teamStats);
         teamStats.setSeason(this);
         return this;
     }
 
     public Season removeTeamStats(TeamStats teamStats) {
-        teamStats.remove(teamStats);
+        this.teamStats.remove(teamStats);
         teamStats.setSeason(null);
         return this;
     }

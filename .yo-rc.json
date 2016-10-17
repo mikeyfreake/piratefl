@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "3.8.0",
+    "jhipsterVersion": "3.9.1",
     "baseName": "piratesfl",
     "packageName": "io.github.mikeyfreake",
     "packageFolder": "io/github/mikeyfreake",
@@ -23,6 +23,7 @@
       "gatling"
     ],
     "jhiPrefix": "jhi",
-    "enableTranslation": false
+    "enableTranslation": false,
+    "serviceDiscoveryType": false
   }
 }
