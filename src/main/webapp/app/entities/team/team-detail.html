@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Team</span> {{vm.team.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Team Name</span></dt>
+        <dd>
+            <span>{{vm.team.teamName}}</span>
+        </dd>
+        <dt><span>Owner</span></dt>
+        <dd>
+            <span>{{vm.team.owner}}</span>
+        </dd>
+        <dt><span>League</span></dt>
+        <dd>
+            <a ui-sref="league-detail({id:vm.team.league.id})">{{vm.team.league.leagueName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="team-detail.edit({id:vm.team.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

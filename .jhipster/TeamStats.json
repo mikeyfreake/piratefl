@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "season",
+            "otherEntityName": "season",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "year"
+        },
+        {
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "teamName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "teamStats"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "wins",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "losses",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ties",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pointsFor",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pointsAgainst",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "draftPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "finished",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20161003185811",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "team_stats",
+    "pagination": "pagination"
+}

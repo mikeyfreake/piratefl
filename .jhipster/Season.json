@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "league",
+            "otherEntityName": "league",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "leagueName"
+        },
+        {
+            "relationshipName": "teamStats",
+            "otherEntityName": "teamStats",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "season"
+        },
+        {
+            "relationshipName": "powerRankings",
+            "otherEntityName": "powerRanking",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "season"
+        },
+        {
+            "relationshipName": "trophyWinners",
+            "otherEntityName": "trophyWinner",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "season"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "year",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20161003184124",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "season",
+    "pagination": "pagination"
+}

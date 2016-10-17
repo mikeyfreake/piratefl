@@ -1,0 +1,80 @@
+<div>
+    <h2>Team Stats</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="team-stats.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Team Stats
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="wins"><span>Wins</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="losses"><span>Losses</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ties"><span>Ties</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pointsFor"><span>Points For</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pointsAgainst"><span>Points Against</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="draftPosition"><span>Draft Position</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="finished"><span>Finished</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="season.year"><span>Season</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="team.teamName"><span>Team</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="teamStats in vm.teamStats track by teamStats.id">
+                    <td><a ui-sref="team-stats-detail({id:teamStats.id})">{{teamStats.id}}</a></td>
+                    <td>{{teamStats.wins}}</td>
+                    <td>{{teamStats.losses}}</td>
+                    <td>{{teamStats.ties}}</td>
+                    <td>{{teamStats.pointsFor}}</td>
+                    <td>{{teamStats.pointsAgainst}}</td>
+                    <td>{{teamStats.draftPosition}}</td>
+                    <td>{{teamStats.finished}}</td>
+                    <td>
+                        <a ui-sref="season-detail({id:teamStats.season.id})">{{teamStats.season.year}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="team-detail({id:teamStats.team.id})">{{teamStats.team.teamName}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="team-stats-detail({id:teamStats.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="team-stats.edit({id:teamStats.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="team-stats.delete({id:teamStats.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

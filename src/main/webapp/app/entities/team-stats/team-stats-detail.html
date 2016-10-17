@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span>Team Stats</span> {{vm.teamStats.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Wins</span></dt>
+        <dd>
+            <span>{{vm.teamStats.wins}}</span>
+        </dd>
+        <dt><span>Losses</span></dt>
+        <dd>
+            <span>{{vm.teamStats.losses}}</span>
+        </dd>
+        <dt><span>Ties</span></dt>
+        <dd>
+            <span>{{vm.teamStats.ties}}</span>
+        </dd>
+        <dt><span>Points For</span></dt>
+        <dd>
+            <span>{{vm.teamStats.pointsFor}}</span>
+        </dd>
+        <dt><span>Points Against</span></dt>
+        <dd>
+            <span>{{vm.teamStats.pointsAgainst}}</span>
+        </dd>
+        <dt><span>Draft Position</span></dt>
+        <dd>
+            <span>{{vm.teamStats.draftPosition}}</span>
+        </dd>
+        <dt><span>Finished</span></dt>
+        <dd>
+            <span>{{vm.teamStats.finished}}</span>
+        </dd>
+        <dt><span>Season</span></dt>
+        <dd>
+            <a ui-sref="season-detail({id:vm.teamStats.season.id})">{{vm.teamStats.season.year}}</a>
+        </dd>
+        <dt><span>Team</span></dt>
+        <dd>
+            <a ui-sref="team-detail({id:vm.teamStats.team.id})">{{vm.teamStats.team.teamName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="team-stats-detail.edit({id:vm.teamStats.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

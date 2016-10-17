@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Trophy Winner</span> {{vm.trophyWinner.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Season</span></dt>
+        <dd>
+            <a ui-sref="season-detail({id:vm.trophyWinner.season.id})">{{vm.trophyWinner.season.year}}</a>
+        </dd>
+        <dt><span>Team</span></dt>
+        <dd>
+            <a ui-sref="team-detail({id:vm.trophyWinner.team.id})">{{vm.trophyWinner.team.teamName}}</a>
+        </dd>
+        <dt><span>Trophy</span></dt>
+        <dd>
+            <a ui-sref="trophy-detail({id:vm.trophyWinner.trophy.id})">{{vm.trophyWinner.trophy.trophyName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="trophy-winner-detail.edit({id:vm.trophyWinner.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

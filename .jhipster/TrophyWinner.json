@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "season",
+            "otherEntityName": "season",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "year"
+        },
+        {
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "teamName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "trophyWinner"
+        },
+        {
+            "relationshipName": "trophy",
+            "otherEntityName": "trophy",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "trophyName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "trophyWinner"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161003192005",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "trophy_winner",
+    "pagination": "pagination"
+}
