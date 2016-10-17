@@ -40,7 +40,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PiratesflApp.class)
 public class TeamStatsResourceIntTest {
 
-
     private static final Integer DEFAULT_WINS = 1;
     private static final Integer UPDATED_WINS = 2;
 

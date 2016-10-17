@@ -41,7 +41,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PiratesflApp.class)
 public class TrophyWinnerResourceIntTest {
 
-
     @Inject
     private TrophyWinnerRepository trophyWinnerRepository;
 
