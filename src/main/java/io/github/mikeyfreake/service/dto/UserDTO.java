@@ -1,15 +1,16 @@
 package io.github.mikeyfreake.service.dto;
 
-import io.github.mikeyfreake.config.Constants;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import io.github.mikeyfreake.domain.Authority;
-import io.github.mikeyfreake.domain.User;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-import javax.validation.constraints.*;
-import java.util.Set;
-import java.util.stream.Collectors;
+import io.github.mikeyfreake.config.Constants;
+import io.github.mikeyfreake.domain.Authority;
+import io.github.mikeyfreake.domain.User;
 
 /**
  * A DTO representing a user, with his authorities.

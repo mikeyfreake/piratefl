@@ -22,8 +22,8 @@
                     <th jh-sort-by="week"><span>Week</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="rank"><span>Rank</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="comments"><span>Comments</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="team.teamName"><span>Team</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="season.year"><span>Season</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="teamTeamName"><span>Team</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="seasonYear"><span>Season</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,10 +34,10 @@
                     <td>{{powerRanking.rank}}</td>
                     <td ta-bind ng-model="powerRanking.comments"></td>
                     <td>
-                        <a ui-sref="team-detail({id:powerRanking.team.id})">{{powerRanking.team.teamName}}</a>
+                        <a ui-sref="team-detail({id:powerRanking.teamId})">{{powerRanking.teamTeamName}}</a>
                     </td>
                     <td>
-                        <a ui-sref="season-detail({id:powerRanking.season.id})">{{powerRanking.season.year}}</a>
+                        <a ui-sref="season-detail({id:powerRanking.seasonId})">{{powerRanking.seasonYear}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

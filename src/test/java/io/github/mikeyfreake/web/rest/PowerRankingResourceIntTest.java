@@ -6,6 +6,9 @@ import io.github.mikeyfreake.domain.PowerRanking;
 import io.github.mikeyfreake.domain.Team;
 import io.github.mikeyfreake.domain.Season;
 import io.github.mikeyfreake.repository.PowerRankingRepository;
+import io.github.mikeyfreake.service.PowerRankingService;
+import io.github.mikeyfreake.service.dto.PowerRankingDTO;
+import io.github.mikeyfreake.service.mapper.PowerRankingMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -53,6 +56,12 @@ public class PowerRankingResourceIntTest {
     private PowerRankingRepository powerRankingRepository;
 
     @Inject
+    private PowerRankingMapper powerRankingMapper;
+
+    @Inject
+    private PowerRankingService powerRankingService;
+
+    @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Inject
@@ -69,7 +78,7 @@ public class PowerRankingResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         PowerRankingResource powerRankingResource = new PowerRankingResource();
-        ReflectionTestUtils.setField(powerRankingResource, "powerRankingRepository", powerRankingRepository);
+        ReflectionTestUtils.setField(powerRankingResource, "powerRankingService", powerRankingService);
         this.restPowerRankingMockMvc = MockMvcBuilders.standaloneSetup(powerRankingResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -110,10 +119,11 @@ public class PowerRankingResourceIntTest {
         int databaseSizeBeforeCreate = powerRankingRepository.findAll().size();
 
         // Create the PowerRanking
+        PowerRankingDTO powerRankingDTO = powerRankingMapper.powerRankingToPowerRankingDTO(powerRanking);
 
         restPowerRankingMockMvc.perform(post("/api/power-rankings")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(powerRanking)))
+                .content(TestUtil.convertObjectToJsonBytes(powerRankingDTO)))
                 .andExpect(status().isCreated());
 
         // Validate the PowerRanking in the database
@@ -133,10 +143,11 @@ public class PowerRankingResourceIntTest {
         powerRanking.setWeek(null);
 
         // Create the PowerRanking, which fails.
+        PowerRankingDTO powerRankingDTO = powerRankingMapper.powerRankingToPowerRankingDTO(powerRanking);
 
         restPowerRankingMockMvc.perform(post("/api/power-rankings")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(powerRanking)))
+                .content(TestUtil.convertObjectToJsonBytes(powerRankingDTO)))
                 .andExpect(status().isBadRequest());
 
         List<PowerRanking> powerRankings = powerRankingRepository.findAll();
@@ -151,10 +162,11 @@ public class PowerRankingResourceIntTest {
         powerRanking.setRank(null);
 
         // Create the PowerRanking, which fails.
+        PowerRankingDTO powerRankingDTO = powerRankingMapper.powerRankingToPowerRankingDTO(powerRanking);
 
         restPowerRankingMockMvc.perform(post("/api/power-rankings")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(powerRanking)))
+                .content(TestUtil.convertObjectToJsonBytes(powerRankingDTO)))
                 .andExpect(status().isBadRequest());
 
         List<PowerRanking> powerRankings = powerRankingRepository.findAll();
@@ -214,10 +226,11 @@ public class PowerRankingResourceIntTest {
                 .week(UPDATED_WEEK)
                 .rank(UPDATED_RANK)
                 .comments(UPDATED_COMMENTS);
+        PowerRankingDTO powerRankingDTO = powerRankingMapper.powerRankingToPowerRankingDTO(updatedPowerRanking);
 
         restPowerRankingMockMvc.perform(put("/api/power-rankings")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(updatedPowerRanking)))
+                .content(TestUtil.convertObjectToJsonBytes(powerRankingDTO)))
                 .andExpect(status().isOk());
 
         // Validate the PowerRanking in the database

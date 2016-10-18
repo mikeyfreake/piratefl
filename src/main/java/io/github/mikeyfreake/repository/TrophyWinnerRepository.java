@@ -1,10 +1,8 @@
 package io.github.mikeyfreake.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import io.github.mikeyfreake.domain.TrophyWinner;
-
-import org.springframework.data.jpa.repository.*;
-
-import java.util.List;
 
 /**
  * Spring Data JPA repository for the TrophyWinner entity.

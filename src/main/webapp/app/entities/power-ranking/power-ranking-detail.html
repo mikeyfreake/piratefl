@@ -14,15 +14,15 @@
         </dd>
         <dt><span>Comments</span></dt>
         <dd>
-            <span>{{vm.powerRanking.comments}}</span>
+            <span ta-bind ng-model="vm.powerRanking.comments"></span>
         </dd>
         <dt><span>Team</span></dt>
         <dd>
-            <a ui-sref="team-detail({id:vm.powerRanking.team.id})">{{vm.powerRanking.team.teamName}}</a>
+            <a ui-sref="team-detail({id:vm.powerRanking.teamId})">{{vm.powerRanking.teamTeamName}}</a>
         </dd>
         <dt><span>Season</span></dt>
         <dd>
-            <a ui-sref="season-detail({id:vm.powerRanking.season.id})">{{vm.powerRanking.season.year}}</a>
+            <a ui-sref="season-detail({id:vm.powerRanking.seasonId})">{{vm.powerRanking.seasonYear}}</a>
         </dd>
     </dl>
 

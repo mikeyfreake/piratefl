@@ -45,8 +45,8 @@
         }
     ],
     "changelogDate": "20161003191221",
-    "dto": "no",
-    "service": "no",
+    "dto": "mapstruct",
+    "service": "serviceClass",
     "entityTableName": "power_ranking",
     "pagination": "pagination"
 }
